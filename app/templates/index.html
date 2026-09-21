@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Funnel</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1>Job Funnel</h1>
+
+    <ul>
+        {% for job in data %}
+            <section>
+                <div class="jobHeader">
+                    <span class="title">{{ job.job_title }}</span>
+                    <span class="jobInfo">{{ job.employer_name }}  </span>
+                    <span class="jobInfo">{{ job.location }}  </span>
+                </div>
+
+                <div class="subHeader">
+                    <span>Applications: {{ job.num_applications }}  </span>
+                    <span>Salary: {{ job.min_salary }} - {{ job.max_salary }}  </span>
+                </div>
+
+                <div class="subHeader">
+                    <span>Posted: {{job.date_posted }}</span>
+                    <span>Expires: {{ job.date_expires }}  </span>
+                </div>
+                <p><strong>Description</strong><br>
+                     {{ job.job_description }}
+                </p>
+
+                <a href="{{ job.job_url }}" target="_blank">
+                    View job
+                </a>
+            </section>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

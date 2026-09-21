@@ -1,0 +1,77 @@
+/* General page */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Remove the default <ul> styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual job */
+section {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 22px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Job title */
+.jobHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 1.25rem;
+    color: #1f2937;
+}
+
+.jobInfo {
+    color: #6b7280;
+}
+
+/* Salary / application information */
+.subHeader {
+    display: flex;
+    gap: 25px;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+/* Description */
+section p {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* URL */
+section a {
+    color: #2563eb;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
