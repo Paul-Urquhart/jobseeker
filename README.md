@@ -34,25 +34,26 @@ jobseeker/
 This app runs in Docker and uses the PostgreSQL instance on the host machine.
 
 ### On host machine in psql:
+```
 CREATE DATABASE jobs_db;
 CREATE USER jobs_user WITH PASSWORD 'your_password_here';
 GRANT ALL PRIVILEGES ON DATABASE jobs_db TO jobs_user;
 \c jobs_db
 GRANT ALL ON SCHEMA public TO jobs_user;
-
+```
 ## TO RUN (Windows/WSL):
 
 Start Docker desktop
 
 From root directory: code .
 Reopen in devcontainer
-
+```
 From terminal inside dev container:
 (Initial setup only): python3 create_db.py (Creates necessary tables in jobs_db database)
 RUN PIPELINE WITH: python3 -m pipeline.api_reed  THEN pipeline.api_greenhouse
 THEN  python3 -m pipeline.process
 RUN FLASK APP WITH: flask run
-
+```
 # Project Roadmap
 
 ## Current Status
