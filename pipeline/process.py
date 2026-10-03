@@ -32,7 +32,7 @@ target_roles = [
     "junior software engineer"
 ]
 
-prohibited_words = [
+excluded_title_words = [
     "c++",
     "centre",
     "consultant",
@@ -45,7 +45,7 @@ prohibited_words = [
     "senior",
     "fabric"
 ]
-prohibited_employers = [
+excluded_employers = [
     "IT Career Switch",
     "Newto Training",
     "ITOL Recruit"
@@ -106,10 +106,10 @@ def filter_jobs(select_by_title):
 
     for job in select_by_title:
         prohibited = False
-        for word in prohibited_words:
+        for word in excluded_title_words:
             if word in job.job_title.lower():
                 prohibited = True
-        if job.employer_name in prohibited_employers:
+        if job.employer_name in excluded_employers:
             prohibited = True
         if prohibited == False:
             filtered_jobs.append(job)
