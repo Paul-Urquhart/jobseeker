@@ -50,8 +50,8 @@ Reopen in devcontainer
 ```
 From terminal inside dev container:
 (Initial setup only): python3 create_db.py (Creates necessary tables in jobs_db database)
-RUN PIPELINE WITH: python3 -m pipeline.api_reed  THEN pipeline.api_greenhouse
-THEN  python3 -m pipeline.process
+RUN PIPELINE WITH: python3 -m pipeline.main
+**Filters not yet refactored, so too many jobs will be displayed.**
 RUN FLASK APP WITH: flask run
 ```
 # Project Roadmap
