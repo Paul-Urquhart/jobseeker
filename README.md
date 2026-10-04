@@ -1,5 +1,5 @@
 # Jobseeker
-## Early development (architecture evolving)
+## Early development (architecture evolving) ** REFACTOR IN PROGRESS **
 
 A job discovery and filtering project that ingests jobs from multiple APIs, stores them in PostgreSQL, filters for relvance and displays results through a Flask web interface.
 

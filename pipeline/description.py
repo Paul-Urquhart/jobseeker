@@ -1,3 +1,6 @@
+# This experimental file pulls the data for a single job from the Reed api and includes the full job desctiption.
+
+
 import requests
 from requests.auth import HTTPBasicAuth
 from dotenv import load_dotenv

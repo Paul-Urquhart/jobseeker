@@ -55,7 +55,7 @@ class CandidateJob(Base):
     date_posted = Column(Date)
     date_expires = Column(Date)
     job_url = Column(String(2048))
-    ingestion_ts = Column(DateTime())
+    ingestion_ts = Column(DateTime(), default=lambda: datetime.now())
 
     __table_args__ = (
         UniqueConstraint("source", "source_id", name="uq_candidate_jobs_source_source_id"),
