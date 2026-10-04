@@ -5,3 +5,9 @@ companies:
   - name: Trainline
     ats: ashby
     slug: trainline
+  - name: Stripe
+    ats: greenhouse
+    slug: Stripe
+  - name: Ohme
+    ats: greenhouse
+    slug: ohme
