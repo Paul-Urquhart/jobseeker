@@ -1,0 +1,32 @@
+target_job_titles:
+  - analytics engineer
+  - data analyst
+  - data developer
+  - data engineer
+  - data infrastructure engineer
+  - data integration engineer
+  - data operations engineer
+  - data pipeline engineer
+  - data platform engineer
+  - data warehouse engineer
+  - early career
+  - etl developer
+  - etl engineer
+  - graduate
+  - junior software engineer
+  - new grad
+
+
+excluded_title_words:
+  - c++
+  - centre
+  - consultant
+  - contract
+  - fabric
+  - head
+  - ir35
+  - lead
+  - manager
+  - principal
+  - senior
+  - staff

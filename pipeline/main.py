@@ -1,5 +1,6 @@
 import yaml
 from . import api_calls
+from . import filters
 from app.db import Session
 from sqlalchemy.dialects.postgresql import insert
 # from datetime import datetime # , timezone
@@ -11,30 +12,12 @@ configure_logging()
 logger = logging.getLogger("pipeline.main")
 
 
-def save_candidate_jobs(candidate_jobs):
+def save_candidate_jobs(candidate_jobs: list[dict]) -> bool:
     logger.info("attempting to save to db")
     try:
         db_session = Session()
 
         values = candidate_jobs
-        # [
-        #     {
-        #         "source": job.source,
-        #         "source_id": job.source_id,
-        #         "job_title": job.job_title,
-        #         "employer_name": job.employer_name,
-        #         "location": job.location,
-        #         "job_description": job.job_description,
-        #         "num_applications": job.num_applications,
-        #         "min_salary": job.min_salary,
-        #         "max_salary": job.max_salary,
-        #         "date_posted": job.date_posted,
-        #         "date_expires": job.date_expires,
-        #         "job_url": job.job_url,
-        #         "ingestion_ts": job.ingestion_ts
-        #     }
-        #     for job in candidate_jobs
-        # ]
 
         stmt = insert(CandidateJob).values(values)
         stmt = stmt.on_conflict_do_nothing(constraint="uq_candidate_jobs_source_source_id")
@@ -52,13 +35,22 @@ def save_candidate_jobs(candidate_jobs):
     finally:
         db_session.close()
 
+
 with open('companies.yaml') as f:
     companies = yaml.safe_load(f)
 
 for company in companies['companies']:
-    print(f"Attempting to get data from {company['name']}")
+    logger.info(f"Attempting to get data from {company['name']}")
     jobs = api_calls.get_company_data(company)
-    num = len(jobs)
-    print(f"Number of jobs from {company['name']} is {num}")
-    print(f"In main loop, attempting to save {company["name"]} to DB.")
-    save_candidate_jobs(jobs)
+    
+    logger.info(f"Number of jobs from {company['name']} is {len(jobs)}")
+    logger.info(f"In main loop, attempting to save {company["name"]} to DB.")
+
+    # filters go here
+    jobs_to_save = []
+    for job in jobs:
+        if filters.passes_filters(job):
+            jobs_to_save.append(job)
+    logger.info(f"Number of jobs that passed filtering: {len(jobs_to_save)}")
+    if len(jobs_to_save) > 0:
+        save_candidate_jobs(jobs)
