@@ -1,4 +1,7 @@
-target_job_titles:
+allowed_locations:
+  - london
+
+relevant_job_titles:
   - analytics engineer
   - data analyst
   - data developer
@@ -12,9 +15,8 @@ target_job_titles:
   - early career
   - etl developer
   - etl engineer
-  - graduate
   - junior software engineer
-  - new grad
+  - python
 
 
 excluded_title_words:

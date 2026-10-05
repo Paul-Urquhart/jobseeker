@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import html
 
 def get_ashby_data(company_name: str, slug: str) -> list[dict]:
     url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
@@ -40,7 +41,11 @@ def get_greenhouse_data(company_name: str, slug: str) -> list[dict]:
     jobs = []
     
     for job in json_data["jobs"]:
-            
+
+        # Decode the HTML in the content field
+        if "content" in job and job["content"]:
+            decoded_html = html.unescape(job["content"])
+            job["content"] = decoded_html
         new_job = {
             "source": "Greenhouse",
             "source_id": str(job["id"]),

@@ -44,7 +44,7 @@ for company in companies['companies']:
     jobs = api_calls.get_company_data(company)
     
     logger.info(f"Number of jobs from {company['name']} is {len(jobs)}")
-    logger.info(f"In main loop, attempting to save {company["name"]} to DB.")
+    
 
     # filters go here
     jobs_to_save = []
@@ -52,5 +52,6 @@ for company in companies['companies']:
         if filters.passes_filters(job):
             jobs_to_save.append(job)
     logger.info(f"Number of jobs that passed filtering: {len(jobs_to_save)}")
+    logger.info(f"In main loop, attempting to save {company["name"]} to DB.")
     if len(jobs_to_save) > 0:
-        save_candidate_jobs(jobs)
+        save_candidate_jobs(jobs_to_save)
