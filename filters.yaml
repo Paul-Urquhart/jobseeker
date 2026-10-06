@@ -12,11 +12,11 @@ relevant_job_titles:
   - data pipeline engineer
   - data platform engineer
   - data warehouse engineer
-  - early career
   - etl developer
   - etl engineer
-  - junior software engineer
-  - python
+  - python developer
+  - software engineer
+  
 
 
 excluded_title_words:

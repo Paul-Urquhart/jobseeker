@@ -11,3 +11,6 @@ companies:
   - name: Ohme
     ats: greenhouse
     slug: ohme
+  - name: Reed  # refers to the Reed API
+    ats: reed
+    slug: reed
