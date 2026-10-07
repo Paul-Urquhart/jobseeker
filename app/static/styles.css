@@ -75,3 +75,21 @@ section a {
 section a:hover {
     text-decoration: underline;
 }
+
+.job-description {
+    max-height: 10.5em; /* roughly 7 lines */
+    overflow: hidden;
+    line-height: 1.5em;
+}
+
+.job-description.expanded {
+    max-height: none;
+}
+
+.more-button {
+    border: none;
+    background: none;
+    padding: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}

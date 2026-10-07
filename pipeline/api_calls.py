@@ -8,7 +8,7 @@ from pipeline.configure_logging import configure_logging
 import logging
 
 configure_logging()
-logger = logging.getLogger("api_reed")
+logger = logging.getLogger("api_calls")
 load_dotenv()
 API_KEY_REED = os.environ.get('API_KEY_REED')
 
@@ -48,6 +48,12 @@ def get_greenhouse_data(company_name: str, slug: str) -> list[dict]:
     response = requests.get(url)
     json_data = response.json()
     
+    try:
+        if json_data['status'] == 404:
+            logger.warning("404 from:", slug)
+            return []
+    except:
+        pass
     jobs = []
     
     for job in json_data["jobs"]:

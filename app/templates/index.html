@@ -25,10 +25,15 @@
                     <span>Posted: {{job.date_posted }}</span>
                     <span>Expires: {{ job.date_expires }}  </span>
                 </div>
-                <p><strong>Description</strong><br>
-                     {{ job.job_description | safe }}
-                </p>
-
+                <p><strong>Description</strong><br></p>
+                <div class="description-container">
+                    <div class="job-description">
+                        {{ job.job_description | safe }}
+                    </div>
+                    <button class="more-button" type="button" onclick="toggleDescription(this)">
+                        More
+                    </button>
+                </div>
                 <a href="{{ job.job_url }}" target="_blank">
                     View job
                 </a>
@@ -36,5 +41,6 @@
         {% endfor %}
     </ul>
 
+<script src="../static/script.js"></script>
 </body>
 </html>

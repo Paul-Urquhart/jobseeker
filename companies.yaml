@@ -2,15 +2,132 @@ companies:
   - name: Lendable
     ats: ashby
     slug: lendable
-  - name: Trainline
-    ats: ashby
-    slug: trainline
-  - name: Stripe
-    ats: greenhouse
-    slug: Stripe
   - name: Ohme
     ats: greenhouse
     slug: ohme
   - name: Reed  # refers to the Reed API
     ats: reed
     slug: reed
+  - name: Stripe
+    ats: greenhouse
+    slug: stripe
+  - name: Trainline
+    ats: ashby
+    slug: trainline
+  - name: Airbyte
+    ats: ashby
+    slug: airbyte
+  - name: Braze
+    ats: greenhouse
+    slug: braze
+  - name: Collibra
+    ats: greenhouse
+    slug: collibra
+  - name: ComplyAdvantage
+    ats: greenhouse
+    slug: complyadvantage
+  - name: Databricks
+    ats: greenhouse
+    slug: databricks
+  - name: Deliveroo
+    ats: greenhouse
+    slug: deliveroo
+  - name: Elastic
+    ats: greenhouse
+    slug: elastic
+  - name: Epic Games
+    ats: greenhouse
+    slug: epicgames
+  - name: Fivetran
+    ats: greenhouse
+    slug: fivetran
+  - name: Flow Traders
+    ats: greenhouse
+    slug: flowtraders
+  - name: GitLab
+    ats: greenhouse
+    slug: gitlab
+  - name: GoCardless
+    ats: greenhouse
+    slug: gocardless
+  - name: Graphcore
+    ats: greenhouse
+    slug: graphcore
+  - name: Gymshark
+    ats: greenhouse
+    slug: gymshark
+  - name: HelloFresh
+    ats: greenhouse
+    slug: hellofresh
+  - name: Intercom
+    ats: greenhouse
+    slug: intercom
+  - name: Jane Street
+    ats: greenhouse
+    slug: janestreet
+  - name: Luno
+    ats: greenhouse
+    slug: luno
+  - name: MongoDB
+    ats: greenhouse
+    slug: mongodb
+  - name: Monzo
+    ats: greenhouse
+    slug: monzo
+  - name: Optiver
+    ats: greenhouse
+    slug: optiver
+  - name: OVO Energy
+    ats: greenhouse
+    slug: ovoenergy
+  - name: Starburst
+    ats: greenhouse
+    slug: starburst
+  - name: Stripe
+    ats: greenhouse
+    slug: stripe
+  - name: TrueLayer
+    ats: greenhouse
+    slug: truelayer
+  - name: Wise
+    ats: greenhouse
+    slug: wise
+  - name: Car Wow
+    ats: ashby
+    slug: carwow
+  - name: Confluent
+    ats: ashby
+    slug: confluent
+  - name: Far Fetch
+    ats: ashby
+    slug: farfetch
+  - name: Flux
+    ats: ashby
+    slug: flux
+  - name: Marshmallow
+    ats: ashby
+    slug: marshmallow
+  - name: Moneybox
+    ats: ashby
+    slug: moneybox
+  - name: Motorway
+    ats: ashby
+    slug: motorway
+  - name: Oaknorth
+    ats: ashby
+    slug: oaknorth
+  - name: Primer
+    ats: ashby
+    slug: primer
+  - name: Snowflake
+    ats: ashby
+    slug: snowflake
+  - name: Snyk
+    ats: ashby
+    slug: snyk
+  - name: Wayve
+    ats: ashby
+    slug: wayve
+  - name: what3words
+    ats: ashby
+    slug: what3words
