@@ -131,3 +131,66 @@ companies:
   - name: what3words
     ats: ashby
     slug: what3words
+  - name: Far Fetch
+    ats: lever
+    slug: farfetch
+  - name: Healx
+    ats: lever
+    slug: healx
+  - name: Jagex
+    ats: lever
+    slug: jagex
+  - name: Benevolentai
+    ats: workable
+    slug: benevolentai
+  - name: BP
+    ats: workable
+    slug: bp
+  - name: Bulb
+    ats: workable 
+    slug: bulb
+  - name: Car Wow
+    ats: workable
+    slug: carwow
+  - name: Citadel
+    ats: workable
+    slug: citadel
+  - name: Citymapper
+    ats: workable
+    slug: citymapper
+  - name: Clearscore
+    ats: workable
+    slug: clearscore
+  - name: Confluent
+    ats: workable
+    slug: confluent
+  - name: Curve
+    ats: workable
+    slug: curve
+  - name: Depop
+    ats: workable
+    slug: depop
+  - name: DRW
+    ats: workable
+    slug: drw
+  - name: Expedia
+    ats: workable
+    slug: expedia
+  - name: Exscientia
+    ats: workable
+    slug: exscientia
+  - name: Far Fetch
+    ats: workable
+    slug: farfetch
+  - name: Flux
+    ats: workable
+    slug: flux
+  - name: Generation Home
+    ats: workable
+    slug: generationhome
+  - name: GitHub
+    ats: workable
+    slug: github
+  - name: Hashicorp
+    ats: workable
+    slug: hashicorp
