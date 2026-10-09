@@ -81,6 +81,43 @@ def get_greenhouse_data(company_name: str, slug: str) -> list[dict]:
     return jobs
 
 
+def get_lever_data(company_name: str, slug: str) -> list[dict]:
+    url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
+
+    response = requests.get(url)
+    json_data = response.json()
+
+    jobs = []
+    
+    for job in json_data:
+
+        desc_full = job["descriptionBody"] + "\n"
+        for item in job["lists"]:
+            desc_full += item["text"] + "\n" + item["content"] + "\n"
+        loc = job["categories"]["location"]
+        all_locs = job["categories"]["allLocations"] or []
+        if all_locs:
+            loc = ", ".join(all_locs)
+
+        new_job = {
+            "source": "Lever",
+            "source_id": str(job["id"]),
+            "job_title": job["text"],
+            "employer_name": company_name,
+            "location": loc,
+            "num_applications": None, #job["applications"],
+            "min_salary": None, #job["minimumSalary"],
+            "max_salary": None, #job["maximumSalary"],
+            "date_posted": datetime.fromtimestamp(job["createdAt"] / 1000).date(),
+            "date_expires": None,
+            "job_description": desc_full,
+            "job_url": job["hostedUrl"],
+        }
+        jobs.append(new_job)
+
+    return jobs
+
+
 def get_reed_data(company_name=None, slug=None) -> list[dict]:
 
     # parameters
@@ -139,12 +176,47 @@ def get_reed_data(company_name=None, slug=None) -> list[dict]:
         jobs.append(new_job)
 
     return jobs
+
+
+def get_workable_data(company_name: str, slug: str) -> list[dict]: # MODIFY FOR WORKABLE
+    url = f"https://apply.workable.com/api/v1/widget/accounts/{slug}?details=true"
+
+
+    # Before modification, just return an empty list so the main pipeline still functions.
+    return []
+
+    response = requests.get(url)
+    json_data = response.json()
+
+    jobs = []
+    
+    for job in json_data["jobs"]:
+            
+        new_job = {
+            "source": "Ashby",
+            "source_id": str(job["id"]),
+            "job_title": job["title"],
+            "employer_name": company_name,
+            "location": job["location"],
+            "num_applications": None, #job["applications"],
+            "min_salary": None, #job["minimumSalary"],
+            "max_salary": None, #job["maximumSalary"],
+            "date_posted": datetime.fromisoformat(job["publishedAt"]).date(),
+            "date_expires": None,
+            "job_description": job["descriptionHtml"],
+            "job_url": job["jobUrl"],
+        }
+        jobs.append(new_job)
+
+    return jobs
     
 
 FETCHERS = {
     "ashby": get_ashby_data,
     "greenhouse": get_greenhouse_data,
-    "reed": get_reed_data
+    "lever": get_lever_data,
+    "reed": get_reed_data,
+    "workable": get_workable_data
 }
 
 
