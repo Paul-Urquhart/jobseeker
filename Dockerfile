@@ -1,4 +1,4 @@
-FROM python:3.14-slim
+FROM python:3.14
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ COPY . .
 EXPOSE 5000
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]
-# CMD ["flask", "run"]
+# CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

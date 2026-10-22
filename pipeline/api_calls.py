@@ -182,8 +182,6 @@ def get_workable_data(company_name: str, slug: str) -> list[dict]: # MODIFY FOR 
     url = f"https://apply.workable.com/api/v1/widget/accounts/{slug}?details=true"
 
 
-    # Before modification, just return an empty list so the main pipeline still functions.
-    return []
 
     response = requests.get(url)
     json_data = response.json()
@@ -191,20 +189,21 @@ def get_workable_data(company_name: str, slug: str) -> list[dict]: # MODIFY FOR 
     jobs = []
     
     for job in json_data["jobs"]:
-            
+        for k,v in job.items():
+            print(k, v)    
         new_job = {
-            "source": "Ashby",
-            "source_id": str(job["id"]),
+            "source": "Workable",
+            "source_id": str(job["shortcode"]),
             "job_title": job["title"],
             "employer_name": company_name,
-            "location": job["location"],
+            "location": job["city"],
             "num_applications": None, #job["applications"],
             "min_salary": None, #job["minimumSalary"],
             "max_salary": None, #job["maximumSalary"],
-            "date_posted": datetime.fromisoformat(job["publishedAt"]).date(),
+            "date_posted": datetime.fromisoformat(job["created_at"]).date(),
             "date_expires": None,
-            "job_description": job["descriptionHtml"],
-            "job_url": job["jobUrl"],
+            "job_description": job["description"],
+            "job_url": job["url"],
         }
         jobs.append(new_job)
 
